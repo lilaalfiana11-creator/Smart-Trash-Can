@@ -1,0 +1,6 @@
+{
+  "name": "Smart Trash Can",
+  "description": "An intelligent waste management SaaS platform powered by Cloud Computing and IoT.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+  --color-brand-blue: #2563EB;
+  --color-brand-blue-hover: #1D4ED8;
+}
+
+@utility glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@utility card-shadow {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+@utility status-pulse {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F8FAFC;
+  color: #1F2937;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+html.dark body {
+  background-color: #0F172A;
+  color: #F8FAFC;
+}
+
+/* Base Dark class selector overrides for rapid global styling mapping */
+html.dark .bg-white {
+  background-color: #1E293B !important;
+  color: #F8FAFC;
+}
+
+html.dark .bg-slate-50,
+html.dark .bg-slate-100 {
+  background-color: #0F172A !important;
+}
+
+html.dark .border-slate-200, 
+html.dark .border-slate-100,
+html.dark .border-slate-150 {
+  border-color: #334155 !important;
+}
+
+html.dark .text-slate-900,
+html.dark .text-slate-850,
+html.dark .text-slate-800,
+html.dark .text-gray-900 {
+  color: #F8FAFC !important;
+}
+
+html.dark .text-slate-600,
+html.dark .text-slate-700,
+html.dark .text-slate-750,
+html.dark .text-gray-600 {
+  color: #CBD5E1 !important;
+}
+
+html.dark .text-slate-400,
+html.dark .text-slate-500,
+html.dark .text-gray-500,
+html.dark .text-gray-400 {
+  color: #94A3B8 !important;
+}
+
+html.dark nav {
+  background-color: rgba(30, 41, 59, 0.9) !important;
+  border-color: #334155 !important;
+}
+
+html.dark footer {
+  background-color: #0F172A !important;
+  border-color: #334155 !important;
+}
+
+html.dark .divide-slate-200,
+html.dark .divide-slate-100 {
+  border-color: #334155 !important;
+}
+
+/* Print styles for Generating Professional PDF Reports */
+@media print {
+  /* Reset background of body to white and text to dark gray for contrast */
+  html, body {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide active app components */
+  body * {
+    visibility: hidden;
+    height: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+  }
+
+  /* Restore only the professional printable element and its nested children */
+  .printable-area,
+  .printable-area * {
+    visibility: visible !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin: initial !important;
+    padding: initial !important;
+    border: initial !important;
+  }
+
+  .printable-area {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: #FFFFFF !important;
+    color: #111827 !important;
+    display: block !important;
+  }
+
+  /* Avoid awkward page break splits inside tables or summaries */
+  .print-avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
